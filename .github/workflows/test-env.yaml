@@ -1,0 +1,17 @@
+name: Test Environment Type Validation
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment to deploy'
+        required: true
+        type: environment
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'production' }}
+    steps:
+      - run: |
+          echo "Environment input value: ${{ inputs.environment }}"
+          echo "Done"
