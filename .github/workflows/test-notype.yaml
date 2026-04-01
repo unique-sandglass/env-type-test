@@ -1,0 +1,15 @@
+name: Test No Type (Legacy)
+on:
+  workflow_dispatch:
+    inputs:
+      upgrade_type:
+        description: 'Type of upgrade'
+        required: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Upgrade type input value: ${{ inputs.upgrade_type }}"
+          echo "Done"
